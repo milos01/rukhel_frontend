@@ -1,0 +1,9 @@
+<section>
+    <p *ngFor="let task of metaTasks.items">
+        {{task | json}}
+    </p>
+</section>
+
+<p *ngFor="let i of metaTasks.meta">
+    <span>{{i.page | json}}</span>
+</p>

@@ -1,0 +1,22 @@
+{
+  "name": "rukhel",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Milos Andric <milos.andric@codetri.be>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  }
+}

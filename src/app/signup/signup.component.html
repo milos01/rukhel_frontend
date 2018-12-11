@@ -1,0 +1,54 @@
+<section class="container col-md-4 section-holder">
+  <h2>Signup</h2>
+  <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+    <div class="form-group">
+      <label for="fullName">Full name</label>
+      <input type="text" class="form-control" id="fullName" placeholder="Full name" name="full_name" ngModel required #fullName="ngModel">
+    </div>
+    <div *ngIf="!signupErrors.full_name && fullName.invalid && (fullName.dirty || fullName.touched)" class="alert alert-danger">
+      <div *ngIf="fullName.errors.required">
+        Tha full name field is required.
+      </div>
+    </div>
+    <div *ngIf="signupErrors && signupErrors.full_name" class="alert alert-danger">
+      {{signupErrors.full_name}}
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="text" class="form-control" id="email" placeholder="Email" name="email" ngModel required #email="ngModel">
+    </div>
+    <div *ngIf="!signupErrors.email && email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+      <div *ngIf="email.errors.required">
+        The email field is required.
+      </div>
+    </div>
+    <div *ngIf="signupErrors && signupErrors.email" class="alert alert-danger">
+      {{signupErrors.email}}
+    </div>
+    <div class="form-group">
+      <label for="email">Username</label>
+      <input type="text" class="form-control" id="username" placeholder="Username" name="username" ngModel required #username="ngModel">
+    </div>
+    <div *ngIf="!signupErrors.username && username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+      <div *ngIf="username.errors.required">
+        The username field is required.
+      </div>
+    </div>
+    <div *ngIf="signupErrors && signupErrors.username" class="alert alert-danger">
+      {{signupErrors.username}}
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" ngModel required #password="ngModel">
+    </div>
+    <div *ngIf="!signupErrors.password && password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+      <div *ngIf="password.errors.required">
+        The password field is required.
+      </div>
+    </div>
+    <div *ngIf="signupErrors && signupErrors.password" class="alert alert-danger">
+      {{signupErrors.password}}
+    </div>
+    <button class="btn btn-primary">Signup</button>
+  </form>
+</section>

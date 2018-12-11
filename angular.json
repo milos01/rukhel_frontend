@@ -23,9 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "bower_components/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "bower_components/jquery/dist/jquery.js",
+              "bower_components/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {

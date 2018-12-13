@@ -1,17 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Observable, throwError} from 'rxjs';
-import {catchError, tap} from 'rxjs/operators';
 import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
-export class TaskService {
+export class CategoryService {
+
     constructor(private http: HttpClient) {
     }
 
-    getMyTasks(params: HttpParams): Observable<any> {
-        return this.http.get('http://localhost:8000/api/task/find', {params}).pipe(
+    getCategories(): Observable<any> {
+        return this.http.get('http://localhost:8000/api/categories').pipe(
             catchError(error => {
                 return throwError(error.error.errors);
             })

@@ -1,9 +1,19 @@
 <section>
-    <p *ngFor="let task of metaTasks.items">
+    <p *ngFor="let task of metaTasks">
         {{task | json}}
     </p>
 </section>
 
-<p *ngFor="let i of metaTasks.meta">
-    <span>{{i.page | json}}</span>
+<p *ngFor="let page of pages; let i = index">
+    <button type="button" (click)="requestPage(filter, i+1)">
+        <span>{{i+1}}</span>
+    </button>
 </p>
+
+<p *ngFor="let categories of taskCategories">
+    <button type="button" (click)="requestCategory(filter, categories.name)">
+        {{categories.display_name}}
+    </button>
+</p>
+
+{{filter | json}}

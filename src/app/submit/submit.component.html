@@ -1,0 +1,29 @@
+<section class="container col-md-4 section-holder">
+  <h2>Submit</h2>
+  <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" ngModel required #subject="ngModel">
+    </div>
+    <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="alert alert-danger">
+      <div *ngIf="subject.errors.required">
+        Tha subject field is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="description" ngModel required #description="ngModel"></textarea>
+    </div>
+    <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+      <div *ngIf="description.errors.required">
+        The description field is required.
+      </div>
+    </div>
+    <p *ngFor="let categories of taskCategories">
+      <button type="button" class="btn btn-secondary" (click)="setCategory(categories.name)">
+        {{categories.display_name}}
+      </button>
+    </p>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</section>

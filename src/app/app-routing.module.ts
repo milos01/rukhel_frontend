@@ -5,6 +5,7 @@ import {SigninComponent} from './signin/signin.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {WelcomeComponent} from './welcome/welcome.component';
+import {SubmitComponent} from './submit/submit.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'submit',
+        component: SubmitComponent
     },
     {
         path: 'signup',

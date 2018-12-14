@@ -18,6 +18,7 @@ export class TasksComponent implements OnChanges {
     @Input() filterData: any;
     @Output() requestPageEvent: EventEmitter<any> = new EventEmitter();
     @Output() requestCategoryEvent: EventEmitter<any> = new EventEmitter();
+    @Output() requestSortEvent: EventEmitter<any> = new EventEmitter();
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes['tasks'] && !changes['tasks'].firstChange) {
@@ -48,14 +49,23 @@ export class TasksComponent implements OnChanges {
     }
 
     requestPage(filter: any, page: number) {
-        console.log(filter.category_id);
-        this.requestPageEvent.emit(page);
+        filter.page = page;
+        this.requestPageEvent.emit(filter);
     }
 
     requestCategory(filter: any, category: string) {
-
         filter.category_id = category;
-        console.log(JSON.stringify(filter));
+        filter.page = 1;
         this.requestCategoryEvent.emit(filter);
+    }
+
+    sortTask(filter: any, status: string) {
+        if (status !== 'all') {
+            filter.status = status;
+        } else {
+            delete filter['status'];
+        }
+        console.log(filter);
+        this.requestSortEvent.emit(filter);
     }
 }

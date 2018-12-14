@@ -11,6 +11,7 @@ import {catchError} from 'rxjs/operators';
 export class SignupComponent {
   userService: any;
   signupErrors: object;
+
   constructor(userService: UserService, ) {
     this.userService = userService;
     this.signupErrors = {};

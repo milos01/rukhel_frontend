@@ -14,6 +14,7 @@ import {AuthInterceptor} from './request/AuthInterceptor';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { SubmitComponent } from './submit/submit.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TasksComponent } from './tasks/tasks.component';
       WelcomeComponent,
       HeaderComponent,
       TasksComponent,
+      SubmitComponent,
   ],
   imports: [
       BrowserModule,

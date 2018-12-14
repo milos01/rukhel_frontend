@@ -1,6 +1,7 @@
 <app-header></app-header>
 <app-tasks [tasks]="myTasks" [categories]="categories" [filterData]="filterData"
            (requestPageEvent)= "requestPage($event)"
-           (requestCategoryEvent)= "requestCategory($event)">
+           (requestCategoryEvent)= "requestCategory($event)"
+           (requestSortEvent)= "requestSort($event)">
     <!--<input type="text" [(ngModel)]="data.test" #ctrl="ngModel" (click)="test()">-->
 </app-tasks>

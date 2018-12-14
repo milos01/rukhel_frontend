@@ -1,19 +1,23 @@
 <section>
-    <p *ngFor="let task of metaTasks">
-        {{task | json}}
-    </p>
-</section>
+<p *ngFor="let task of metaTasks">
+    {{task | json}}
+</p>
+
 
 <p *ngFor="let page of pages; let i = index">
-    <button type="button" (click)="requestPage(filter, i+1)">
+    <button type="button" (click)="requestPage(filter, i+1)" class="btn btn-light" [ngClass]="(i+1 === filter.page)? 'active' : ''">
         <span>{{i+1}}</span>
     </button>
 </p>
+    <button class="btn btn-primary" (click)="sortTask(filter, 'all')">All</button>
+    <button class="btn btn-primary" (click)="sortTask(filter, 'NOOFFER')">No offer</button>
+    <button class="btn btn-primary" (click)="sortTask(filter, 'PAID')">Unpaid</button>
+    <button class="btn btn-primary" (click)="sortTask(filter, 'SOLVED')">Solved</button>
 
 <p *ngFor="let categories of taskCategories">
-    <button type="button" (click)="requestCategory(filter, categories.name)">
+    <button type="button" (click)="requestCategory(filter, categories.name)" class="btn btn-secondary" [ngClass]="(categories.name === filter.category_id)? 'active' : ''">
         {{categories.display_name}}
     </button>
 </p>
-
+</section>
 {{filter | json}}

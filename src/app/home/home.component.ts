@@ -34,19 +34,29 @@ export class HomeComponent implements OnInit {
             });
     }
 
-    requestPage(page) {
-        const initParams = {
-            'term': 'all',
-            'category_id': 'math',
-            'page': page
-        };
-        const httpParams = this._generateParams(initParams);
-        this.myTasks = this._getMyTasks(httpParams);
+    requestPage(data) {
+        console.log(data);
+        const httpParams = this._generateParams(data);
+        this.task.getMyTasks(httpParams).subscribe(
+            res => {
+                this.myTasks = res;
+            });
     }
 
     requestCategory(data) {
         const httpParams = this._generateParams(data);
-        this.myTasks = this._getMyTasks(httpParams);
+        this.task.getMyTasks(httpParams).subscribe(
+            res => {
+                this.myTasks = res;
+            });
+    }
+
+    requestSort(data) {
+        const httpParams = this._generateParams(data);
+        this.task.getMyTasks(httpParams).subscribe(
+            res => {
+                this.myTasks = res;
+            });
     }
 
     _generateParams(params) {
@@ -65,13 +75,4 @@ export class HomeComponent implements OnInit {
             }
         );
     }
-
-    _getMyTasks(httpParams: HttpParams) {
-
-    }
-
-    test(){
-
-    }
-
 }

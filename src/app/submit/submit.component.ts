@@ -10,19 +10,19 @@ import {CategoryService} from '../category.service';
 })
 export class SubmitComponent implements OnInit {
     task: any;
-    category: any;
+    cat: any;
     taskCategories: any;
     postData: any;
     category: string;
 
     constructor(taskService: TaskService, categoryService: CategoryService) {
         this.task = taskService;
-        this.category = categoryService;
+        this.cat = categoryService;
         this.postData = {};
     }
 
     ngOnInit() {
-       this.category.getCategories().subscribe(
+       this.cat.getCategories().subscribe(
            res => {
                this.taskCategories = res;
            }

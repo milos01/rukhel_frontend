@@ -24,6 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/dropzone.min.css",
               "bower_components/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [

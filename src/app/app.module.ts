@@ -15,6 +15,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { SubmitComponent } from './submit/submit.component';
+import { DropZoneDirective } from './drop-zone.directive';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { SubmitComponent } from './submit/submit.component';
       HeaderComponent,
       TasksComponent,
       SubmitComponent,
+      DropZoneDirective,
+      FileUploadComponent,
   ],
   imports: [
       BrowserModule,

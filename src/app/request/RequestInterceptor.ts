@@ -12,10 +12,12 @@ import {catchError} from 'rxjs/operators';
 export class RequestInterceptor implements HttpInterceptor {
     constructor() {}
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        request = request.clone({
-            headers: request.headers.set('Content-Type', 'application/json')
-        });
 
+        if (!request.reportProgress) {
+            request = request.clone({
+                headers: request.headers.set('Content-Type', 'application/json')
+            });
+        }
         return next.handle(request);
     }
 }

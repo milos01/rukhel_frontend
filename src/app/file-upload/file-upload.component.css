@@ -4,3 +4,6 @@
 .hovering {
     border: 2px dashed rgba(0, 0, 0, 0.1);
 }
+.hidden {
+    display: none;
+}

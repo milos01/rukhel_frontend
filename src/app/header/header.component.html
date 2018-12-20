@@ -1,18 +1,75 @@
 <section>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Rukhel</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item" *ngIf="!isUserLogged">
-                  <a class="nav-link" routerLink="/signup">Signup <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item" *ngIf="!isUserLogged">
-                  <a class="nav-link" routerLink="/signin">Signin <span class="sr-only">(current)</span></a>
-              </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <button type="button" *ngIf="isUserLogged" class="btn btn-outline-danger" (click)="getLogout()">Logout</button>
-          </form>
-      </div>
-  </nav>
+    <ng-template #content let-modal>
+        <div class="modal-content">
+            <div class="modal-body row custom-tab-row">
+                <div class="nav flex-column nav-pills col-md-4 pills-menu" id="v-pills-tab" role="tablist"
+                     aria-orientation="vertical">
+                    <a class="nav-link nav-link-text active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                       role="tab"
+                       aria-controls="v-pills-home" aria-selected="true">Profile</a>
+                    <a class="nav-link nav-link-text" id="v-pills-social-tab" data-toggle="pill" href="#v-pills-social" role="tab"
+                       aria-controls="v-pills-profile" aria-selected="false">Social</a>
+                    <a class="nav-link nav-link-text" id="v-pills-payment-tab" data-toggle="pill" href="#v-pills-payment" role="tab"
+                       aria-controls="v-pills-messages" aria-selected="false">Payment</a>
+                    <a class="nav-link nav-link-text-danger" id="v-pills-deactivate-tab" data-toggle="pill" href="#v-pills-deactivate"
+                       role="tab"
+                       aria-controls="v-pills-settings" aria-selected="false">Deactivate account</a>
+                </div>
+                <div class="tab-content col-md-8 user-profile-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active col-12" id="v-pills-profile" role="tabpanel"
+                         aria-labelledby="v-pills-home-tab">
+                        <div class="row" id="user-profile-pills">
+                            <div class="nav flex-column nav-pills col-md-6 user-profile-labels"
+                                 role="tablist" aria-orientation="vertical">
+                                <div class="nav-link">Full name</div>
+                                <div class="nav-link">Date of birth</div>
+                                <div class="nav-link">Username</div>
+                                <div class="nav-link">Password</div>
+                                <div class="nav-link">Email</div>
+                            </div>
+                            <div class="nav flex-column nav-pills col-md-6 user-profile-inputs"
+                                 role="tablist" aria-orientation="vertical">
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" [(ngModel)]="user.full_name"></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" [(ngModel)]="user.email"></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" [(ngModel)]="user.username"></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" value="******"></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" [(ngModel)]="user.email"></div>
+                                <div class="nav-link user-inputs-nav-link-button">
+                                    <button type="button" class="btn btn-primary nav-save-button">Save</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-social" role="tabpanel"
+                         aria-labelledby="v-pills-profile-tab">social
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-payment" role="tabpanel"
+                         aria-labelledby="v-pills-messages-tab">payment
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-deactivate" role="tabpanel"
+                         aria-labelledby="v-pills-settings-tab">deactivate user
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Rukhel</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" *ngIf="!isUserLogged">
+                    <a class="nav-link" routerLink="/signup">Signup <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" *ngIf="!isUserLogged">
+                    <a class="nav-link" routerLink="/signin">Signin <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" *ngIf="isUserLogged">
+                <button type="button" class="btn btn-outline-info" (click)="openModal(content)">Profile</button>
+                <button type="button" class="btn btn-outline-danger" (click)="getLogout()">Logout</button>
+            </form>
+        </div>
+    </nav>
 </section>

@@ -49,4 +49,13 @@ export class UserService {
       }
       return false;
   }
+
+  public getUser() {
+      return this.http.get('http://localhost:8000/api/user').pipe(
+          catchError(error => {
+              return throwError(error.error.errors);
+          })
+      );
+  }
 }
+

@@ -17,6 +17,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { SubmitComponent } from './submit/submit.component';
 import { DropZoneDirective } from './drop-zone.directive';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
       BrowserModule,
       AppRoutingModule,
       FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      NgbModule
   ],
   providers: [
       {

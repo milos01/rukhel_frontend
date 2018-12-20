@@ -1,0 +1,76 @@
+.custom-tab-row {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #3381ea;
+}
+
+.nav-link {
+    border-radius: 0;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.modal-content {
+    border: 1px solid white;
+    border-radius: 0;
+}
+
+.user-profile-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.user-profile-labels {
+    background-color: #f9fafb;
+    color: #585858;
+}
+
+.user-profile-inputs {
+    color: #000;
+}
+
+.user-profile-inputs, .user-profile-labels {
+    padding-right: 0;
+}
+
+.pills-menu {
+    padding-right: 0;
+    background-color: #f1f1f1;
+    color: #585858;
+}
+
+.nav-link-text {
+    color: #585858;
+}
+
+.nav-link-text-danger {
+    color: #ff0000;
+}
+
+.nav-link-input {
+    border:0;
+    width: 100%;
+    outline: none;
+}
+
+.user-inputs-nav-link {
+    height: 47.38px;
+}
+
+.nav-save-button {
+    float: right;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    padding: 5px 30px;
+    background-color: #3381ea;
+}
+
+.user-inputs-nav-link-button {
+    padding-top: 300px;
+    border-bottom: none
+;
+}

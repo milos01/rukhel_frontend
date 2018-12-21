@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {Router} from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {SigninComponent} from '../signin/signin.component';
+import {SignupComponent} from '../signup/signup.component';
 
 @Component({
     selector: 'app-header',
@@ -30,10 +32,18 @@ export class HeaderComponent implements OnInit {
         this.isUserLogged = logged;
     }
 
-    openModal(content) {
+    openSigninModal() {
+        this._openModal(SigninComponent);
+    }
+
+    openSignupModal() {
+        this._openModal(SignupComponent);
+    }
+
+    _openModal(content) {
         this.modalService.open(content,
             {ariaLabelledBy: 'modal-basic-title', size: 'lg'}
-            ).result.then((result) => {
+        ).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
             this.closeResult = `Dismissed ${this._getDismissReason(reason)}`;
@@ -56,8 +66,5 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['']);
     }
 
-    onSubmit(form) {
-        alert('a');
-    }
 
 }

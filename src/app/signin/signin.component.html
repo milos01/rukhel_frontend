@@ -1,33 +1,64 @@
-<section class="container col-md-4 section-holder">
-  <h2>Signin</h2>
-  <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="text" class="form-control" id="email" placeholder="Email" name="email" ngModel required #email="ngModel">
-    </div>
-    <div *ngIf="!signinErrors.email && email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-      <div *ngIf="email.errors.required">
-        The email field is required.
+<!--<section class="container col-md-4 section-holder">-->
+  <!--<h2>Signin</h2>-->
+  <!--<form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>-->
+    <!--<div class="form-group">-->
+      <!--<label for="email">Email address</label>-->
+      <!--<input type="text" class="form-control" id="email" placeholder="Email" name="email" ngModel required #email="ngModel">-->
+    <!--</div>-->
+    <!--<div *ngIf="!signinErrors.email && email.invalid && (email.dirty || email.touched)" class="alert alert-danger">-->
+      <!--<div *ngIf="email.errors.required">-->
+        <!--The email field is required.-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div *ngIf="signinErrors && signinErrors.email" class="alert alert-danger">-->
+      <!--{{signinErrors.email}}-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+      <!--<label for="exampleInputPassword1">Password</label>-->
+      <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" ngModel required #password="ngModel">-->
+    <!--</div>-->
+    <!--<div *ngIf="!signinErrors.password && password.invalid && (password.dirty || password.touched)" class="alert alert-danger">-->
+      <!--<div *ngIf="password.errors.required">-->
+        <!--The password field is required.-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div *ngIf="signinErrors && signinErrors.password" class="alert alert-danger">-->
+      <!--{{signinErrors.password}}-->
+    <!--</div>-->
+    <!--<div *ngIf=" signinErrors.global" class="alert alert-danger">-->
+      <!--{{signinErrors.global}}-->
+    <!--</div>-->
+    <!--<button class="btn btn-primary">Signup</button>-->
+  <!--</form>-->
+<!--</section>-->
+<div class="modal-header-title">
+  <p class="header-title-big">Welcome</p>
+  <p class="header-title-small">Please enter your info:</p>
+</div>
+<div class="modal-content">
+  <div class="modal-body row custom-tab-row">
+    <div class="tab-content col-12">
+      <div class="tab-pane fade show active" role="tabpanel"
+           aria-labelledby="v-pills-home-tab">
+        <div class="row">
+          <div class="nav flex-column nav-pills col-md-4 user-profile-labels"
+               role="tablist" aria-orientation="vertical">
+            <div class="nav-link">Email</div>
+            <div class="nav-link">Password</div>
+            <a class="forgot-label" (click)="openForgotModal()">Forgot password?</a>
+          </div>
+          <div class="nav flex-column nav-pills col-md-8 user-profile-inputs"
+               role="tablist" aria-orientation="vertical">
+            <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+              <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" id="email" placeholder="Email" name="email" ngModel required #email="ngModel"></div>
+              <div class="nav-link user-inputs-nav-link"><input type="password" class="nav-link-input" id="exampleInputPassword1" placeholder="Password" name="password" ngModel required #password="ngModel"></div>
+              <div class="nav-link signin-nav">
+                <button type="submit" class="btn btn-primary nav-signin-button">Signin</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    <div *ngIf="signinErrors && signinErrors.email" class="alert alert-danger">
-      {{signinErrors.email}}
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" ngModel required #password="ngModel">
-    </div>
-    <div *ngIf="!signinErrors.password && password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-      <div *ngIf="password.errors.required">
-        The password field is required.
-      </div>
-    </div>
-    <div *ngIf="signinErrors && signinErrors.password" class="alert alert-danger">
-      {{signinErrors.password}}
-    </div>
-    <div *ngIf=" signinErrors.global" class="alert alert-danger">
-      {{signinErrors.global}}
-    </div>
-    <button class="btn btn-primary">Signup</button>
-  </form>
-</section>
+  </div>
+</div>

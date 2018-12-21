@@ -27,4 +27,8 @@ export class SigninComponent {
         );
     }
 
+    openForgotModal() {
+        alert('a');
+    }
+
 }

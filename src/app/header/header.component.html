@@ -1,5 +1,85 @@
 <section>
+    <!--signup template-->
+    <ng-template #signupContent let-modal>
+        <div class="modal-header-title blue-bg">
+            <p class="header-title-big">Welcome</p>
+            <p class="header-title-small">Please enter your info:</p>
+        </div>
+        <div class="modal-content">
+            <div class="modal-body row custom-tab-row">
+                <div class="tab-content col-12">
+                    <div class="tab-pane fade show active" role="tabpanel"
+                         aria-labelledby="v-pills-home-tab">
+                        <div class="row">
+                            <div class="nav flex-column nav-pills col-md-4 user-profile-labels"
+                                 role="tablist" aria-orientation="vertical">
+                                <div class="nav-link">Full name</div>
+                                <div class="nav-link">Date of birth</div>
+                                <div class="nav-link">Username</div>
+                                <div class="nav-link">Password</div>
+                                <div class="nav-link">Email</div>
+                                <div class="nav-link">Confirm email</div>
+                            </div>
+                            <div class="nav flex-column nav-pills col-md-8 user-profile-inputs"
+                                 role="tablist" aria-orientation="vertical">
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input"></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" ></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input"></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="password" class="nav-link-input"></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input"></div>
+                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input"></div>
+                                <div class="nav-link user-inputs-nav-link-button">
+                                    <button type="button" class="btn btn-primary nav-save-button">Signup</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <!--signin template-->
+    <ng-template #signinContent let-modal>
+        <div>
+            <div class="modal-header-title">
+                <p class="header-title-big">Welcome</p>
+                <p class="header-title-small">Please enter your info:</p>
+            </div>
+            <div class="modal-content">
+                <div class="modal-body row custom-tab-row">
+                    <div class="tab-content col-12">
+                        <div class="tab-pane fade show active" role="tabpanel"
+                             aria-labelledby="v-pills-home-tab">
+                            <div class="row">
+                                    <div class="nav flex-column nav-pills col-md-4 user-profile-labels"
+                                         role="tablist" aria-orientation="vertical">
+                                        <div class="nav-link">Email</div>
+                                        <div class="nav-link">Password</div>
+                                        <div class="nav-link forgot-label">Forgot password?</div>
+                                    </div>
+                                    <div class="nav flex-column nav-pills col-md-8 user-profile-inputs"
+                                         role="tablist" aria-orientation="vertical">
+                                        <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+                                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" id="email" placeholder="Email" name="email" ngModel required #email="ngModel"></div>
+                                            <div class="nav-link user-inputs-nav-link"><input type="password" class="nav-link-input" id="exampleInputPassword1" placeholder="Password" name="password" ngModel required #password="ngModel"></div>
+                                            <div class="nav-link signin-nav">
+                                                <button type="submit" class="btn btn-primary nav-signin-button">Signin</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <!--user profile template-->
     <ng-template #content let-modal>
+        <div class="modal-header-title">
+            <p class="header-title-big">Hello {{user.full_name}}</p>
+            <p class="header-title-small">This is your profile:</p>
+        </div>
         <div class="modal-content">
             <div class="modal-body row custom-tab-row">
                 <div class="nav flex-column nav-pills col-md-4 pills-menu" id="v-pills-tab" role="tablist"
@@ -32,14 +112,13 @@
                                 <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" [(ngModel)]="user.full_name"></div>
                                 <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" [(ngModel)]="user.email"></div>
                                 <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" [(ngModel)]="user.username"></div>
-                                <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" value="******"></div>
+                                <div class="nav-link user-inputs-nav-link">******</div>
                                 <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" [(ngModel)]="user.email"></div>
                                 <div class="nav-link user-inputs-nav-link-button">
                                     <button type="button" class="btn btn-primary nav-save-button">Save</button>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="tab-pane fade" id="v-pills-social" role="tabpanel"
                          aria-labelledby="v-pills-profile-tab">social
@@ -48,7 +127,26 @@
                          aria-labelledby="v-pills-messages-tab">payment
                     </div>
                     <div class="tab-pane fade" id="v-pills-deactivate" role="tabpanel"
-                         aria-labelledby="v-pills-settings-tab">deactivate user
+                         aria-labelledby="v-pills-settings-tab">
+                        <div class="row custom-user-deactivate-row" id="user-deactivate-pills">
+                            <div class="nav flex-column nav-pills col-md-6 user-profile-labels"
+                                 role="tablist" aria-orientation="vertical">
+                                <div class="nav-link">Deactivate user</div>
+                            </div>
+                            <div class="nav flex-column nav-pills col-md-6 user-profile-inputs"
+                                 role="tablist" aria-orientation="vertical">
+                                <div class="nav-link user-deactivate-nav-link">
+                                    <p>
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    </p>
+                                </div>
+                                <div class="nav-link user-inputs-nav-link-button">
+                                    <button type="button" class="btn btn-danger nav-deactivate-button">Deactivate</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -60,10 +158,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" *ngIf="!isUserLogged">
-                    <a class="nav-link" routerLink="/signup">Signup <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" (click)="openModal(signupContent)">Signup <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" *ngIf="!isUserLogged">
-                    <a class="nav-link" routerLink="/signin">Signin <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" (click)="openModal(signinContent)">Signin <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" *ngIf="isUserLogged">

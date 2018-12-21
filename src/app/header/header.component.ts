@@ -20,15 +20,19 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.isUserLogged = this.userService.isLoggedIn();
-        this.user = this.userService.getUser().subscribe(res => {
-            this.user = res;
-        });
+
+        const logged = this.userService.isLoggedIn();
+        if (logged) {
+            this.user = this.userService.getUser().subscribe(res => {
+                this.user = res;
+            });
+        }
+        this.isUserLogged = logged;
     }
 
     openModal(content) {
         this.modalService.open(content,
-            {ariaLabelledBy: 'modal-basic-title', centered: true, size: 'lg'}
+            {ariaLabelledBy: 'modal-basic-title', size: 'lg'}
             ).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
@@ -50,6 +54,10 @@ export class HeaderComponent implements OnInit {
         this.userService.logout();
         this.isUserLogged = false;
         this.router.navigate(['']);
+    }
+
+    onSubmit(form) {
+        alert('a');
     }
 
 }

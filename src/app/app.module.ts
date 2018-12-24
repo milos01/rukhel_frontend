@@ -18,6 +18,8 @@ import {SubmitComponent} from './submit/submit.component';
 import {DropZoneDirective} from './drop-zone.directive';
 import {FileUploadComponent} from './file-upload/file-upload.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ForgottenPasswordComponent } from './forgotten-password/forgotten-password.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +34,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
         SubmitComponent,
         DropZoneDirective,
         FileUploadComponent,
+        ForgottenPasswordComponent,
+        ConfirmationComponent,
     ],
     imports: [
         BrowserModule,
@@ -52,7 +56,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
             multi: true,
         }
     ],
-    entryComponents: [SigninComponent],
+    entryComponents: [
+        SigninComponent,
+        ForgottenPasswordComponent,
+        ConfirmationComponent
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

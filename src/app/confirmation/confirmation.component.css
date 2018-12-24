@@ -1,0 +1,18 @@
+.modal-header-title {
+    /*position: absolute;*/
+    width: 100%;
+    /*top: -140px;*/
+    background-color: #ef9116;
+    font-size: 53px;
+    color: #fff;
+    text-align: center;
+    padding: 24px 0px;
+}
+
+.header-title-big {
+    margin-bottom: -5px;
+}
+
+.header-title-small {
+    font-size: 19px;
+}

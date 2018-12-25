@@ -20,6 +20,7 @@ import {FileUploadComponent} from './file-upload/file-upload.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ForgottenPasswordComponent } from './forgotten-password/forgotten-password.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
         FileUploadComponent,
         ForgottenPasswordComponent,
         ConfirmationComponent,
+        ResetPasswordComponent,
     ],
     imports: [
         BrowserModule,

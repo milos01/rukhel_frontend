@@ -6,6 +6,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {SubmitComponent} from './submit/submit.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
 
 const routes: Routes = [
     {
@@ -30,6 +31,10 @@ const routes: Routes = [
     {
         path: 'signin',
         component: SigninComponent
+    },
+    {
+        path: 'reset-password/:token',
+        component: ResetPasswordComponent
     },
     {
         path: '**',

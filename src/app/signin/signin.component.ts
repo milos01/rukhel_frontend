@@ -25,6 +25,7 @@ export class SigninComponent {
     onSubmit(form: NgForm) {
         this.userService.postSignin(form).subscribe(
             res => {
+                this.modalCtrl.getActiveModal().close();
                 this.router.navigate(['home']);
             },
             err => {

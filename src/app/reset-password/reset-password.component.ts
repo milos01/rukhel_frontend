@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../user.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
     selector: 'app-reset-password',
@@ -17,6 +18,10 @@ export class ResetPasswordComponent implements OnInit {
     ngOnInit() {
         this.token = this.route.snapshot.paramMap.get('token');
         this.userService.checkEmailHash(this.token).subscribe();
+    }
+
+    onSubmit(form: NgForm) {
+        this.userService.postUpdatePassword(form, this.token).subscribe();
     }
 
 }

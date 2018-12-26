@@ -73,10 +73,20 @@ export class UserService {
     }
 
     public checkEmailHash($hash) {
-        console.log($hash);
         const params = new HttpParams().set('token', $hash);
 
         return this.http.get('http://localhost:8000/api/auth/check-hash', {params}).pipe(
+            catchError(error => {
+                return throwError(error.error.errors);
+            })
+        );
+    }
+
+    public postUpdatePassword(form, token): Observable<any> {
+        const body = form.value;
+        body.token = token;
+
+        return this.http.post('http://localhost:8000/api/auth/update-password', JSON.stringify(body)).pipe(
             catchError(error => {
                 return throwError(error.error.errors);
             })

@@ -11,9 +11,11 @@ export class ModalCtrlService {
     constructor(private modalService: NgbModal) {
     }
 
-    openModal(content) {
+    openModal(content, data?: any) {
         this.modalReference = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size: 'lg'});
-
+        if (data) {
+            this.modalReference.componentInstance.data = data;
+        }
         this.modalReference.result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {

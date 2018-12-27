@@ -1,0 +1,82 @@
+<div class="modal-header-title">
+    <p class="header-title-big">Hello {{full_name_label}}</p>
+    <p class="header-title-small">This is your profile:</p>
+</div>
+<div class="modal-content">
+    <div class="modal-body row custom-tab-row">
+        <div class="nav flex-column nav-pills col-md-4 pills-menu" id="v-pills-tab" role="tablist"
+             aria-orientation="vertical">
+            <a class="nav-link nav-link-text active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+               role="tab"
+               aria-controls="v-pills-home" aria-selected="true">Profile</a>
+            <a class="nav-link nav-link-text" id="v-pills-social-tab" data-toggle="pill" href="#v-pills-social"
+               role="tab"
+               aria-controls="v-pills-profile" aria-selected="false">Social</a>
+            <a class="nav-link nav-link-text" id="v-pills-payment-tab" data-toggle="pill" href="#v-pills-payment"
+               role="tab"
+               aria-controls="v-pills-messages" aria-selected="false">Payment</a>
+            <a class="nav-link nav-link-text-danger" id="v-pills-deactivate-tab" data-toggle="pill"
+               href="#v-pills-deactivate"
+               role="tab"
+               aria-controls="v-pills-settings" aria-selected="false">Deactivate account</a>
+        </div>
+        <div class="tab-content col-md-8 user-profile-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active col-12" id="v-pills-profile" role="tabpanel"
+                 aria-labelledby="v-pills-home-tab">
+                <div class="row" id="user-profile-pills">
+                    <div class="nav flex-column nav-pills col-md-6 user-profile-labels"
+                         role="tablist" aria-orientation="vertical">
+                        <div class="nav-link">Full name</div>
+                        <div class="nav-link">Date of birth</div>
+                        <div class="nav-link">Username</div>
+                        <div class="nav-link">Password</div>
+                        <div class="nav-link">Email</div>
+                    </div>
+                    <div class="nav flex-column nav-pills col-md-6 user-profile-inputs"
+                         role="tablist" aria-orientation="vertical">
+                        <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" name="full_name"  [(ngModel)]="full_name" required></div>
+                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" name="email" [(ngModel)]="email" required></div>
+                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" name="username" [(ngModel)]="username" required></div>
+                            <div class="nav-link user-inputs-nav-link inactive">******</div>
+                            <div class="nav-link user-inputs-nav-link inactive"><input type="text"
+                                                                                       class="nav-link-input inactive" name="email" [(ngModel)]="email"></div>
+                            <div class="nav-link user-inputs-nav-link-button">
+                                <button type="submit" class="btn btn-primary nav-save-button">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-social" role="tabpanel"
+                 aria-labelledby="v-pills-profile-tab">social
+            </div>
+            <div class="tab-pane fade" id="v-pills-payment" role="tabpanel"
+                 aria-labelledby="v-pills-messages-tab">payment
+            </div>
+            <div class="tab-pane fade" id="v-pills-deactivate" role="tabpanel"
+                 aria-labelledby="v-pills-settings-tab">
+                <div class="row custom-user-deactivate-row" id="user-deactivate-pills">
+                    <div class="nav flex-column nav-pills col-md-6 user-profile-labels"
+                         role="tablist" aria-orientation="vertical">
+                        <div class="nav-link">Deactivate user</div>
+                    </div>
+                    <div class="nav flex-column nav-pills col-md-6 user-profile-inputs"
+                         role="tablist" aria-orientation="vertical">
+                        <div class="nav-link user-deactivate-nav-link">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                when an unknown printer took a galley of type and scrambled it to make a type specimen
+                                book.
+                            </p>
+                        </div>
+                        <div class="nav-link user-inputs-nav-link-button">
+                            <button type="button" class="btn btn-danger nav-deactivate-button">Deactivate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

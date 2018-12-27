@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ModalCtrlService} from '../modal-ctrl.service';
 import {SigninComponent} from '../signin/signin.component';
 import {SignupComponent} from '../signup/signup.component';
+import {ProfileComponent} from '../profile/profile.component';
 
 @Component({
     selector: 'app-header',
@@ -13,6 +14,7 @@ import {SignupComponent} from '../signup/signup.component';
 export class HeaderComponent implements OnInit {
     isUserLogged: boolean;
     user: any;
+    full_name_label: string;
     full_name: string;
 
     constructor(private userService: UserService,
@@ -25,6 +27,7 @@ export class HeaderComponent implements OnInit {
         if (logged) {
             this.user = this.userService.getUser().subscribe(res => {
                 this.user = res;
+                this.full_name_label = res.full_name;
             });
         }
         this.isUserLogged = logged;
@@ -36,6 +39,14 @@ export class HeaderComponent implements OnInit {
 
     openSignupModal() {
         this.modalCtrl.openModal(SignupComponent);
+    }
+
+    openProfileModal() {
+        const data = {
+            'user': this.user,
+            'full_name_label': this.full_name_label
+        }
+        this.modalCtrl.openModal(ProfileComponent, data);
     }
 
     getLogout() {

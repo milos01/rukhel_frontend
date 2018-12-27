@@ -92,5 +92,15 @@ export class UserService {
             })
         );
     }
+
+    public putUser(form): Observable<any> {
+        const body = JSON.stringify(form.value);
+
+        return this.http.put('http://localhost:8000/api/user', body).pipe(
+            catchError(error => {
+                return throwError(error.error.errors);
+            })
+        );
+    }
 }
 

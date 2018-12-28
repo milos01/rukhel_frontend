@@ -148,3 +148,25 @@
 .inactive {
     background-color: #f9fafb;
 }
+
+.datepicker {
+    padding: 5px;
+}
+
+.datepicker-input {
+    border: none;
+}
+
+.datepicker-input {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #000000;
+}
+
+.datepicker-btn {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: #ffffff;
+}

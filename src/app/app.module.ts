@@ -22,6 +22,7 @@ import { ForgottenPasswordComponent } from './forgotten-password/forgotten-passw
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     declarations: [
@@ -46,7 +47,8 @@ import { ProfileComponent } from './profile/profile.component';
         AppRoutingModule,
         FormsModule,
         HttpClientModule,
-        NgbModule
+        NgbModule,
+        FontAwesomeModule
     ],
     providers: [
         {

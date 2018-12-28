@@ -26,21 +26,31 @@
                 <div class="row" id="user-profile-pills">
                     <div class="nav flex-column nav-pills col-md-6 user-profile-labels"
                          role="tablist" aria-orientation="vertical">
-                        <div class="nav-link">Full name</div>
-                        <div class="nav-link">Date of birth</div>
-                        <div class="nav-link">Username</div>
-                        <div class="nav-link">Password</div>
-                        <div class="nav-link">Email</div>
+                        <div class="nav-link"><fa-icon [icon]="faFullName" size="1x"></fa-icon> Full name</div>
+                        <div class="nav-link"><fa-icon [icon]="faCalendar" size="1x"></fa-icon> Date of birth</div>
+                        <div class="nav-link"><fa-icon [icon]="faAt" size="1x"></fa-icon> Username</div>
+                        <div class="nav-link"><fa-icon [icon]="faUnlockAlt" size="1x"></fa-icon> Password</div>
+                        <div class="nav-link"><fa-icon [icon]="faEnvelopeOpen" size="1x"></fa-icon> Email</div>
                     </div>
                     <div class="nav flex-column nav-pills col-md-6 user-profile-inputs"
                          role="tablist" aria-orientation="vertical">
                         <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
-                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" name="full_name"  [(ngModel)]="full_name" required></div>
-                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" name="email" [(ngModel)]="email" required></div>
-                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" name="username" [(ngModel)]="username" required></div>
+                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" name="full_name"  [(ngModel)]="data.user.full_name" required></div>
+                            <div class="nav-link user-inputs-nav-link datepicker">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input class="form-control datepicker-input" placeholder="yyyy-mm-dd"
+                                               name="dob" #c2="ngModel" [(ngModel)]="data.user.dob" ngbDatepicker #date="ngbDatepicker">
+                                        <div class="input-group-append">
+                                            <button class="btn  datepicker-btn" (click)="date.toggle()" type="button"><fa-icon [icon]="faCalendar" size="1x"></fa-icon></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="nav-link user-inputs-nav-link"><input type="text" class="nav-link-input" name="username" [(ngModel)]="data.user.username" required></div>
                             <div class="nav-link user-inputs-nav-link inactive">******</div>
-                            <div class="nav-link user-inputs-nav-link inactive"><input type="text"
-                                                                                       class="nav-link-input inactive" name="email" [(ngModel)]="email"></div>
+                            <div class="nav-link user-inputs-nav-link inactive">{{data.user.email}}</div>
                             <div class="nav-link user-inputs-nav-link-button">
                                 <button type="submit" class="btn btn-primary nav-save-button">Save</button>
                             </div>

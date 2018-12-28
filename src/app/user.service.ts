@@ -66,6 +66,7 @@ export class UserService {
 
     public getUser() {
         return this.http.get('http://localhost:8000/api/user').pipe(
+            tap(res => res['dob'] = new Date(res['dob'])),
             catchError(error => {
                 return throwError(error.error.errors);
             })

@@ -17,7 +17,7 @@ export class SignupComponent {
     faUnlockAlt = faUnlockAlt;
     faEnvelopeOpen = faEnvelopeOpen;
 
-    constructor(userService: UserService,) {
+    constructor(userService: UserService) {
         this.userService = userService;
         this.signupErrors = {};
     }

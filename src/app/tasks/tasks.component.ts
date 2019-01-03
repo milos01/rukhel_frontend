@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, Output, SimpleChanges, EventEmitter} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import {faCaretRight} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-tasks',
@@ -12,6 +13,7 @@ export class TasksComponent implements OnChanges {
     taskCategories: any;
     pages: string[];
     filter: any;
+    faCaretRight: faCaretRight;
 
     @Input() tasks: any;
     @Input() categories: any;

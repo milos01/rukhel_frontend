@@ -1,23 +1,61 @@
 <section>
-<p *ngFor="let task of metaTasks">
-    {{task | json}}
-</p>
+    <div class="row">
+        <div class="col-md-12 tasks-title">
+            My tasks
+            <p class="task-small-title">test test</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 task-filter-container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row tasks-holer" *ngFor="let task of metaTasks">
+                        <div class="col-md-2" style="border:1px solid red;">date</div>
+                        <div class="col-md-10 task-container">
+                            {{task | json}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 filter-container">
+                    <p class="filter-header-label">Sort</p>
+                    <div class="filter-item" [ngClass]="('all' === filter.status) ? 'active' : ''"
+                         (click)="sortTask(filter, 'all')">All
+                    </div>
+                    <div class="filter-item" [ngClass]="('NOOFFER' === filter.status) ? 'active' : ''"
+                         (click)="sortTask(filter, 'NOOFFER')">No offer
+                    </div>
+                    <div class="filter-item" [ngClass]="('PAID' === filter.status) ? 'active' : ''"
+                         (click)="sortTask(filter, 'PAID')">Unpaid
+                    </div>
+                    <div class="filter-item" [ngClass]="('SOLVED' === filter.status) ? 'active' : ''"
+                         (click)="sortTask(filter, 'SOLVED')">Solved
+                    </div>
 
+                    <p class="filter-lower-header-label">Show</p>
+                    <div *ngFor="let categories of taskCategories">
+                        <div class="filter-item" [ngClass]="(categories.name === filter.category_id)? 'active' : ''"
+                             (click)="requestCategory(filter, categories.name)">{{categories.display_name}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<p *ngFor="let page of pages; let i = index">-->
+    <!--<button type="button" (click)="requestPage(filter, i+1)" class="btn btn-light"-->
+    <!--[ngClass]="(i+1 === filter.page)? 'active' : ''">-->
+    <!--<span>{{i+1}}</span>-->
+    <!--</button>-->
+    <!--</p>-->
+    <!--<button class="btn btn-primary" (click)="sortTask(filter, 'all')">All</button>-->
+    <!--<button class="btn btn-primary" (click)="sortTask(filter, 'NOOFFER')">No offer</button>-->
+    <!--<button class="btn btn-primary" (click)="sortTask(filter, 'PAID')">Unpaid</button>-->
+    <!--<button class="btn btn-primary" (click)="sortTask(filter, 'SOLVED')">Solved</button>-->
 
-<p *ngFor="let page of pages; let i = index">
-    <button type="button" (click)="requestPage(filter, i+1)" class="btn btn-light" [ngClass]="(i+1 === filter.page)? 'active' : ''">
-        <span>{{i+1}}</span>
-    </button>
-</p>
-    <button class="btn btn-primary" (click)="sortTask(filter, 'all')">All</button>
-    <button class="btn btn-primary" (click)="sortTask(filter, 'NOOFFER')">No offer</button>
-    <button class="btn btn-primary" (click)="sortTask(filter, 'PAID')">Unpaid</button>
-    <button class="btn btn-primary" (click)="sortTask(filter, 'SOLVED')">Solved</button>
-
-<p *ngFor="let categories of taskCategories">
-    <button type="button" (click)="requestCategory(filter, categories.name)" class="btn btn-secondary" [ngClass]="(categories.name === filter.category_id)? 'active' : ''">
-        {{categories.display_name}}
-    </button>
-</p>
+    <!--<p *ngFor="let categories of taskCategories">-->
+    <!--<button type="button" (click)="requestCategory(filter, categories.name)" class="btn btn-secondary"-->
+    <!--[ngClass]="(categories.name === filter.category_id)? 'active' : ''">-->
+    <!--{{categories.display_name}}-->
+    <!--</button>-->
+    <!--</p>-->
 </section>
-{{filter | json}}

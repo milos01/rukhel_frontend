@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TaskService} from '../task.service';
 import {HttpParams} from '@angular/common/http';
 import {CategoryService} from '../category.service';
+import {faCaretRight} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-home',
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
         this.filterData = {
             'term': 'all',
             'category_id': 'math',
+            'status': 'all',
             'page': 1
         };
     }

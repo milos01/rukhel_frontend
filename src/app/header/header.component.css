@@ -125,6 +125,10 @@
     border: 1px solid #ef9116;
 }
 
+.navbar {
+    padding: 0.5rem 0;
+}
+
 .forgot-label {
     border-bottom: none;
     padding: 16px 15px;
@@ -134,4 +138,72 @@
 
 .modal-lg {
     /*margin-top: 200px;*/
+}
+
+
+
+.profile-btn {
+    width: 117px;
+    background-color: #3381ea;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.logout-btn {
+    width: 117px;
+    background-color: #fa3737;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.categories-drwn {
+    width: 117px;
+    border-radius: 15px;
+    border: 1px solid #a6a6a6;
+    background-color: #fff;
+    font-size: 13px;
+    color: #a6a6a6!important;
+    height: 35px;
+}
+
+.dropdown-toggle::after {
+    color: #1173f6;
+    float: left;
+    margin-top: 6px;
+    border-left: 0.4em solid transparent;
+    border-right: 0.4em solid transparent;
+    border-top: 0.7em solid;
+    /*margin-right: -5px;*/
+}
+
+.task-search {
+    width: 337px;
+    height: 35px;
+    border-radius: 15px;
+    /*border: 1px solid #a6a6a6;*/
+    /*background-color: #fff;*/
+    /*font-size: 13px;*/
+    /*color: #a6a6a6;*/
+    margin-left: 10px;
+}
+
+.task-search-input {
+    height: 35px;
+    border-radius: 15px;
+    border-left: none;
+    padding-left: 5px;
+    color: #a6a6a6;
+    border-color: #a6a6a6;
+    color: #a6a6a6;
+    font-size: 13px;
+}
+
+.task-search-icon {
+    border-radius: 15px;
+    background: transparent;
+    padding-right: 2;
+    border-color: #a6a6a6;
 }

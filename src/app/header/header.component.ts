@@ -5,6 +5,7 @@ import {ModalCtrlService} from '../modal-ctrl.service';
 import {SigninComponent} from '../signin/signin.component';
 import {SignupComponent} from '../signup/signup.component';
 import {ProfileComponent} from '../profile/profile.component';
+import {faEnvelopeOpen} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-header',
@@ -14,6 +15,7 @@ import {ProfileComponent} from '../profile/profile.component';
 export class HeaderComponent implements OnInit {
     isUserLogged: boolean;
     user: any;
+    faEnvelopeOpen: faEnvelopeOpen;
 
     constructor(private userService: UserService,
                 private router: Router,

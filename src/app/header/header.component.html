@@ -1,18 +1,33 @@
 <section>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light col-md-8 offset-md-2">
         <a class="navbar-brand" href="#">Rukhel</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item" *ngIf="!isUserLogged">
-                    <a class="nav-link" (click)="openSignupModal()">Signup <span class="sr-only">(current)</span></a>
-                </li>
+                <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle categories-drwn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </button>
+                    <div class="dropdown-menu">
+                        <!-- Dropdown menu links -->
+                    </div>
+                </div>
+                <div class="input-group task-search">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text task-search-icon" id="basic-addon1"></span>
+                    </div>
+                    <input type="text" class="form-control task-search-input" placeholder="What do you want to learn?" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <!--<input class="form-control mr-sm-2 task-search" type="search" placeholder="Search" aria-label="Search">-->
                 <li class="nav-item" *ngIf="!isUserLogged">
                     <a class="nav-link" (click)="openSigninModal()">Signin <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item" *ngIf="!isUserLogged">
+                    <a class="nav-link" (click)="openSignupModal()">Signup <span class="sr-only">(current)</span></a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" *ngIf="isUserLogged">
-                <button type="button" class="btn btn-outline-info" (click)="openProfileModal()">Profile</button>
-                <button type="button" class="btn btn-outline-danger" (click)="getLogout()">Logout</button>
+                <button type="button" class="btn logout-btn" (click)="getLogout()">Logout</button>
+                <button type="button" class="btn profile-btn" (click)="openProfileModal()">Profile</button>
             </form>
         </div>
     </nav>

@@ -25,6 +25,7 @@
     "@ng-bootstrap/ng-bootstrap": "^4.0.1",
     "add": "^2.0.6",
     "core-js": "^2.5.4",
+    "moment": "^2.23.0",
     "rxjs": "^6.3.3",
     "tslib": "^1.9.0",
     "yarn": "^1.12.3",

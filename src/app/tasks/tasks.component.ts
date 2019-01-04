@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, Output, SimpleChanges, EventEmitter} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {faCaretRight} from '@fortawesome/free-solid-svg-icons';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-tasks',
@@ -13,7 +13,6 @@ export class TasksComponent implements OnChanges {
     taskCategories: any;
     pages: string[];
     filter: any;
-    faCaretRight: faCaretRight;
 
     @Input() tasks: any;
     @Input() categories: any;
@@ -38,15 +37,19 @@ export class TasksComponent implements OnChanges {
 
     _generatePaginationArray(metadata: any) {
         console.log(metadata);
-        if (metadata.items === undefined) { return; }
+        if (metadata.items === undefined) {
+            return;
+        }
 
-        this.metaTasks = this.tasks.items;
+        this.metaTasks = this._extractMetadata(this.tasks.items);
         const pagesNumber = Math.ceil(metadata.meta.total / metadata.meta.total_on_page);
         this.pages = new Array(pagesNumber).fill(' ');
     }
 
     _generateCategoriesArray(categories: any) {
-        if (!this.tasks[0]) { return; }
+        if (!this.tasks[0]) {
+            return;
+        }
         this.taskCategories = categories;
     }
 
@@ -62,12 +65,38 @@ export class TasksComponent implements OnChanges {
     }
 
     sortTask(filter: any, status: string) {
-        if (status !== 'all') {
-            filter.status = status;
-        } else {
-            delete filter['status'];
-        }
+        filter.status = status;
         console.log(filter);
         this.requestSortEvent.emit(filter);
     }
+
+    _extractMetadata(tasks) {
+        tasks.forEach(task => {
+            this._getDayAndMonth(task);
+            this._trimString(task);
+        });
+
+        return tasks;
+    }
+
+    _getDayAndMonth(task) {
+        const day = moment(task.created_at).date();
+        const month = moment(task.created_at).format('MMMM');
+
+        task.day = day;
+        task.month = month;
+
+        return task;
+    }
+
+    _trimString(task) {
+        if (task.description.length > 140) {
+            const description = task.description.substr(0, 140);
+            task.trimed_description = description.substr(0, Math.min(description.length, description.lastIndexOf(' '))) + '...';
+        } else {
+            task.trimed_description = task.description;
+        }
+        return task;
+    }
 }
+

@@ -2,7 +2,6 @@
     <div class="row">
         <div class="col-md-12 tasks-title">
             My tasks
-            <p class="task-small-title">test test</p>
         </div>
     </div>
     <div class="row">
@@ -10,16 +9,39 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="row tasks-holer" *ngFor="let task of metaTasks">
-                        <div class="col-md-2" style="border:1px solid red;">date</div>
+                        <div class="col-md-2 task-date">
+                            <p class="task-date-day">{{task.day}}</p>
+                            <p class="task-date-month">{{task.month}}</p></div>
                         <div class="col-md-10 task-container">
-                            {{task | json}}
+                            <div class="row">
+                                <div class="col-md-8 task-info-holder">
+                                    <div class="col-md-12 task-subject">
+                                        {{task.subject}}
+                                    </div>
+                                    <div class="col-md-12 task-description">
+                                        {{task.trimed_description}}
+                                    </div>
+                                    <div class="col-md-12" style="border: 1px solid red"></div>
+                                </div>
+                                <div class="col-md-4 task-action-holder">
+                                    <i class="fas fa-sync-alt fa-spin fa-3x arrow-spinner" *ngIf="task.status === 'WAITING'"></i>
+                                    <div *ngIf="task.status === 'OFFERED'" class="offered-task-action">
+                                        <button type="button" class="btn accept-btn">Accept offer</button>
+                                        <button type="button" class="btn decline-btn">Decline offer</button>
+                                    </div>
+                                    <div *ngIf="task.status === 'PAID'" class="offered-task-action">
+                                        <button type="button" class="btn send-message-btn">Message</button>
+                                        <button type="button" class="btn view-solution-btn">View solution</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 filter-container">
                     <p class="filter-header-label">Sort</p>
-                    <div class="filter-item" [ngClass]="('all' === filter.status) ? 'active' : ''"
-                         (click)="sortTask(filter, 'all')">All
+                    <div class="filter-item" [ngClass]="('ALL' === filter.status) ? 'active' : ''"
+                         (click)="sortTask(filter, 'ALL')">All
                     </div>
                     <div class="filter-item" [ngClass]="('NOOFFER' === filter.status) ? 'active' : ''"
                          (click)="sortTask(filter, 'NOOFFER')">No offer
@@ -41,12 +63,12 @@
             </div>
         </div>
     </div>
-    <!--<p *ngFor="let page of pages; let i = index">-->
-    <!--<button type="button" (click)="requestPage(filter, i+1)" class="btn btn-light"-->
-    <!--[ngClass]="(i+1 === filter.page)? 'active' : ''">-->
-    <!--<span>{{i+1}}</span>-->
-    <!--</button>-->
-    <!--</p>-->
+    <p *ngFor="let page of pages; let i = index">
+    <button type="button" (click)="requestPage(filter, i+1)" class="btn btn-light"
+    [ngClass]="(i+1 === filter.page)? 'active' : ''">
+    <span>{{i+1}}</span>
+    </button>
+    </p>
     <!--<button class="btn btn-primary" (click)="sortTask(filter, 'all')">All</button>-->
     <!--<button class="btn btn-primary" (click)="sortTask(filter, 'NOOFFER')">No offer</button>-->
     <!--<button class="btn btn-primary" (click)="sortTask(filter, 'PAID')">Unpaid</button>-->

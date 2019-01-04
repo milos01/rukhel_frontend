@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
         this.filterData = {
             'term': 'all',
             'category_id': 'math',
-            'status': 'all',
+            'status': 'ALL',
             'page': 1
         };
     }

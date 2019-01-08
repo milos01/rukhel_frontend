@@ -155,3 +155,11 @@
     font-size: 14px;
     margin-right: 10px;
 }
+
+.pagination-container {
+    margin: auto auto;
+}
+
+.pagination-holder {
+    margin: auto;
+}

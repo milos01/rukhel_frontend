@@ -63,12 +63,32 @@
             </div>
         </div>
     </div>
-    <p *ngFor="let page of pages; let i = index">
-    <button type="button" (click)="requestPage(filter, i+1)" class="btn btn-light"
-    [ngClass]="(i+1 === filter.page)? 'active' : ''">
-    <span>{{i+1}}</span>
-    </button>
-    </p>
+    //TODO replace old pagination
+    <div class="row container pagination-container">
+        <ul class="pagination pagination-holder">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--<p *ngFor="let page of pages; let i = index">-->
+    <!--<button type="button" (click)="requestPage(filter, i+1)" class="btn btn-light"-->
+    <!--[ngClass]="(i+1 === filter.page)? 'active' : ''">-->
+    <!--<span>{{i+1}}</span>-->
+    <!--</button>-->
+    <!--</p>-->
+
+
     <!--<button class="btn btn-primary" (click)="sortTask(filter, 'all')">All</button>-->
     <!--<button class="btn btn-primary" (click)="sortTask(filter, 'NOOFFER')">No offer</button>-->
     <!--<button class="btn btn-primary" (click)="sortTask(filter, 'PAID')">Unpaid</button>-->

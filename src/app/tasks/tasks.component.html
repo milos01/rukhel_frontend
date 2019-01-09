@@ -12,7 +12,7 @@
                         <div class="col-md-2 task-date">
                             <p class="task-date-day">{{task.day}}</p>
                             <p class="task-date-month">{{task.month}}</p></div>
-                        <div class="col-md-10 task-container">
+                        <div class="col-md-10 task-container" [ngStyle]="{'border-left-color':task.categories.color}">
                             <div class="row">
                                 <div class="col-md-8 task-info-holder">
                                     <div class="col-md-12 task-subject">
@@ -41,16 +41,16 @@
                 <div class="col-md-3 filter-container">
                     <p class="filter-header-label">Sort</p>
                     <div class="filter-item" [ngClass]="('ALL' === filter.status) ? 'active' : ''"
-                         (click)="sortTask(filter, 'ALL')">All
+                         (click)="sortTask(filter, 'ALL')"><i *ngIf="('ALL' === filter.status) ? 'active' : ''" class="fas fa-caret-right"></i> All
                     </div>
                     <div class="filter-item" [ngClass]="('NOOFFER' === filter.status) ? 'active' : ''"
-                         (click)="sortTask(filter, 'NOOFFER')">No offer
+                         (click)="sortTask(filter, 'NOOFFER')"><i *ngIf="('NOOFFER' === filter.status) ? 'active' : ''" class="fas fa-caret-right"></i> No offer
                     </div>
                     <div class="filter-item" [ngClass]="('PAID' === filter.status) ? 'active' : ''"
-                         (click)="sortTask(filter, 'PAID')">Unpaid
+                         (click)="sortTask(filter, 'PAID')"><i *ngIf="('PAID' === filter.status) ? 'active' : ''" class="fas fa-caret-right"></i> Unpaid
                     </div>
                     <div class="filter-item" [ngClass]="('SOLVED' === filter.status) ? 'active' : ''"
-                         (click)="sortTask(filter, 'SOLVED')">Solved
+                         (click)="sortTask(filter, 'SOLVED')"><i *ngIf="('SOLVED' === filter.status) ? 'active' : ''" class="fas fa-caret-right"></i> Solved
                     </div>
 
                     <p class="filter-lower-header-label">Show</p>
@@ -63,17 +63,16 @@
             </div>
         </div>
     </div>
-    //TODO replace old pagination
-    <div class="row container pagination-container">
+    <div class="row container pagination-container" *ngIf="pages.length !== 0">
         <ul class="pagination pagination-holder">
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+            <li *ngFor="let page of pages; let i = index" class="page-item"><a class="page-link" (click)="requestPage(filter, i+1)" [ngClass]="(i+1 === filter.page)? 'active' : ''">{{i+1}}</a></li>
+
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>

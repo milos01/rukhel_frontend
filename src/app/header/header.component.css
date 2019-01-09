@@ -204,6 +204,7 @@
 .task-search-icon {
     border-radius: 15px;
     background: transparent;
-    padding-right: 2;
+    padding-right: 2px;
     border-color: #a6a6a6;
+    background-color: #fff;
 }

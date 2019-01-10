@@ -83,15 +83,20 @@ export class TasksComponent implements OnChanges {
         const day = moment(task.created_at).date();
         const month = moment(task.created_at).format('MMMM');
 
+        const bestOfferDate = moment(task.best_offer.created_at).format('DD.MM.YYYY');
+        const offer = task.best_offer.offer + '$';
+
         task.day = day;
         task.month = month;
+        task.best_offer.created_at = bestOfferDate;
+        task.best_offer.offer = offer;
 
         return task;
     }
 
     _trimString(task) {
         if (task.description.length > 140) {
-            const description = task.description.substr(0, 140);
+            const description = task.description.substr(0, 130);
             task.trimed_description = description.substr(0, Math.min(description.length, description.lastIndexOf(' '))) + '...';
         } else {
             task.trimed_description = task.description;

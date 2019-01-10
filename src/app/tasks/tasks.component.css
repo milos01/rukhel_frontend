@@ -94,13 +94,13 @@
     text-align: left;
     font-weight: bold;
     font-size: 16px;
-    padding: 4px 7px;
+    padding: 6px 15px;
 }
 
 .task-description {
-    font-size: 13px;
+    font-size: 14px;
     text-align: left;
-    padding-left: 7px;
+    padding-left: 15px;
     color: #989898;
 }
 
@@ -174,4 +174,22 @@
     font-size: 20px;
     color: #ef9116;
     position: absolute;
+}
+
+.offered-holder {
+    position: absolute;
+    bottom:0;
+    text-align: left;
+    padding: 6px 15px;
+    font-size: 14px;
+    color: #000;
+}
+
+.fa-clock {
+    color: #1877f5;
+}
+
+.fa-wallet {
+    color: #1877f5;
+    margin-left: 15px;
 }

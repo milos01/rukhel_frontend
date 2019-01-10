@@ -21,7 +21,16 @@
                                     <div class="col-md-12 task-description">
                                         {{task.trimed_description}}
                                     </div>
-                                    <div class="col-md-12" style="border: 1px solid red"></div>
+                                    <div class="col-md-12 offered-holder">
+                                        <div *ngIf="task.status === 'OFFERED'">
+                                           <span><i class="far fa-clock"></i> {{task.best_offer.created_at}}</span>
+                                           <span><i class="fas fa-wallet"></i> {{task.best_offer.offer}}</span>
+                                        </div>
+                                        <div *ngIf="task.status === 'PAID'">
+                                            <span><i class="far fa-clock"></i> {{task.best_offer.created_at}}</span>
+                                            <span><i class="fas fa-wallet"></i> {{task.best_offer.offer}}</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4 task-action-holder">
                                     <i class="fas fa-sync-alt fa-spin fa-3x arrow-spinner" *ngIf="task.status === 'WAITING'"></i>
@@ -63,7 +72,7 @@
             </div>
         </div>
     </div>
-    <div class="row container pagination-container" *ngIf="pages.length !== 0">
+    <div class="row container pagination-container" *ngIf="pages?.length !== 0">
         <ul class="pagination pagination-holder">
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous">

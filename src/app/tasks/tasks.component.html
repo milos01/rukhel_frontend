@@ -22,11 +22,10 @@
                                         {{task.trimed_description}}
                                     </div>
                                     <div class="col-md-12 offered-holder">
-                                        <div *ngIf="task.status === 'OFFERED'">
-                                           <span><i class="far fa-clock"></i> {{task.best_offer.created_at}}</span>
-                                           <span><i class="fas fa-wallet"></i> {{task.best_offer.offer}}</span>
+                                        <div *ngIf="task.status === 'PAID' || task.status === 'WAITING'">
+                                           <span class="attachment" *ngFor="let attachment of task.testcol"><i class="fas fa-paperclip"></i> {{attachment.hash_name.substring(0, 8)}}</span>
                                         </div>
-                                        <div *ngIf="task.status === 'PAID'">
+                                        <div *ngIf="task.status === 'OFFERED'">
                                             <span><i class="far fa-clock"></i> {{task.best_offer.created_at}}</span>
                                             <span><i class="fas fa-wallet"></i> {{task.best_offer.offer}}</span>
                                         </div>
@@ -35,8 +34,8 @@
                                 <div class="col-md-4 task-action-holder">
                                     <i class="fas fa-sync-alt fa-spin fa-3x arrow-spinner" *ngIf="task.status === 'WAITING'"></i>
                                     <div *ngIf="task.status === 'OFFERED'" class="offered-task-action">
-                                        <button type="button" class="btn accept-btn">Accept offer</button>
-                                        <button type="button" class="btn decline-btn">Decline offer</button>
+                                        <button type="button" class="btn accept-btn" (click)="acceptOffer(task.best_offer)">Accept offer</button>
+                                        <button type="button" class="btn decline-btn" (click)="declineOffer()">Decline offer</button>
                                     </div>
                                     <div *ngIf="task.status === 'PAID'" class="offered-task-action">
                                         <button type="button" class="btn send-message-btn">Message</button>

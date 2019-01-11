@@ -19,9 +19,16 @@ export class TaskService {
     }
 
     postTask(form): Observable<any> {
-        console.log(form);
         const body = JSON.stringify(form.value);
 
+        return this.http.post('http://localhost:8000/api/task', body).pipe(
+            catchError(error => {
+                return throwError(error);
+            })
+        );
+    }
+
+    postAcceptOffer(offer): Observable<any> {
         return this.http.post('http://localhost:8000/api/task', body).pipe(
             catchError(error => {
                 return throwError(error);

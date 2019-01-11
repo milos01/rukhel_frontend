@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, Output, SimpleChanges, EventEmitter} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import * as moment from 'moment';
+import {TaskService} from '../task.service';
 
 @Component({
     selector: 'app-tasks',
@@ -20,6 +21,9 @@ export class TasksComponent implements OnChanges {
     @Output() requestPageEvent: EventEmitter<any> = new EventEmitter();
     @Output() requestCategoryEvent: EventEmitter<any> = new EventEmitter();
     @Output() requestSortEvent: EventEmitter<any> = new EventEmitter();
+
+    constructor(private taskService: TaskService){
+    }
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes['tasks'] && !changes['tasks'].firstChange) {
@@ -102,6 +106,10 @@ export class TasksComponent implements OnChanges {
             task.trimed_description = task.description;
         }
         return task;
+    }
+
+    acceptOffer(best_offer) {
+        this.taskService.acceptOffer(best_offer).subscribe();
     }
 }
 

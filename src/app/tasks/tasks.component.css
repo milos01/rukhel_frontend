@@ -185,8 +185,15 @@
     color: #000;
 }
 
-.fa-clock {
+.fa-clock, .fa-paperclip {
     color: #1877f5;
+}
+
+.fa-paperclip {
+    font-size: 14px;
+}
+.attachment {
+    margin-right: 10px;
 }
 
 .fa-wallet {

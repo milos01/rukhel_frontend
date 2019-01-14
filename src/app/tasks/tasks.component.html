@@ -32,10 +32,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 task-action-holder">
-                                    <i class="fas fa-sync-alt fa-spin fa-3x arrow-spinner" *ngIf="task.status === 'WAITING'"></i>
+                                    <i class="fas fa-sync-alt fa-spin fa-3x arrow-spinner" *ngIf="task.status === 'WAITING' || task.status === 'SOLVING'"></i>
                                     <div *ngIf="task.status === 'OFFERED'" class="offered-task-action">
-                                        <button type="button" class="btn accept-btn" (click)="acceptOffer(task.best_offer)">Accept offer</button>
-                                        <button type="button" class="btn decline-btn" (click)="declineOffer()">Decline offer</button>
+                                        <button type="button" class="btn accept-btn" (click)="acceptOffer(task)">Accept offer</button>
+                                        <button type="button" class="btn decline-btn" (click)="declineOffer(task)">Decline offer</button>
                                     </div>
                                     <div *ngIf="task.status === 'PAID'" class="offered-task-action">
                                         <button type="button" class="btn send-message-btn">Message</button>

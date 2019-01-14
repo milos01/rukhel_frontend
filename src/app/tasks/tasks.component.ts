@@ -22,7 +22,7 @@ export class TasksComponent implements OnChanges {
     @Output() requestCategoryEvent: EventEmitter<any> = new EventEmitter();
     @Output() requestSortEvent: EventEmitter<any> = new EventEmitter();
 
-    constructor(private taskService: TaskService){
+    constructor(private taskService: TaskService) {
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -108,8 +108,18 @@ export class TasksComponent implements OnChanges {
         return task;
     }
 
-    acceptOffer(best_offer) {
-        this.taskService.acceptOffer(best_offer).subscribe();
+    acceptOffer(task) {
+        this.taskService.getAcceptOffer(task.id, task.best_offer).subscribe(response => {
+            const itemIndex = this.metaTasks.findIndex(item => item.id === response.id);
+            this.metaTasks[itemIndex] = this._extractMetadata([response])[0];
+        });
+    }
+
+    declineOffer(task) {
+        this.taskService.getDeclineOffer(task.id, task.best_offer).subscribe(response => {
+            const itemIndex = this.metaTasks.findIndex(item => item.id === response.id);
+            this.metaTasks[itemIndex] = this._extractMetadata([response])[0];
+        });
     }
 }
 

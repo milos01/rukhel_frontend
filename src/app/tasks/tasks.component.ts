@@ -40,7 +40,6 @@ export class TasksComponent implements OnChanges {
     }
 
     _generatePaginationArray(metadata: any) {
-        console.log(metadata);
         if (metadata.items === undefined) {
             return;
         }
@@ -116,8 +115,9 @@ export class TasksComponent implements OnChanges {
     }
 
     declineOffer(task) {
-        this.taskService.getDeclineOffer(task.id, task.best_offer).subscribe(response => {
+        this.taskService.getDeclineOffer(task).subscribe(response => {
             const itemIndex = this.metaTasks.findIndex(item => item.id === response.id);
+            console.log(response);
             this.metaTasks[itemIndex] = this._extractMetadata([response])[0];
         });
     }

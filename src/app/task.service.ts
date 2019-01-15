@@ -39,8 +39,9 @@ export class TaskService {
         );
     }
 
-    getDeclineOffer(id, offer): Observable<any> {
-        return this.http.get('http://localhost:8000/api/task/' + id + '/decline/' + offer.id).pipe(
+    getDeclineOffer(task): Observable<any> {
+        console.log(task);
+        return this.http.get('http://localhost:8000/api/task/' + task.id + '/decline/' + task.best_offer.user_id).pipe(
             tap(res => {
                 return res;
             }),
